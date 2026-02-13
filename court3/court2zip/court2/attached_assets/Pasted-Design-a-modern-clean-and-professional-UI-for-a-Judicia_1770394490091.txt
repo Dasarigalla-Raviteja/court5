@@ -1,0 +1,281 @@
+Design a modern, clean, and professional UI for a **Judicial Case Monitoring System** focusing on two modules:
+
+1️⃣ Case Upload Page
+2️⃣ Case Status / Monitoring Page
+
+Follow the requirements strictly.
+
+---
+
+## 🔷 CASE UPLOAD PAGE — FINAL DESIGN
+
+### Layout Structure
+
+Section Title: **Upload Case Documents**
+
+### Fields to Include
+
+• Upload Case Document (PDF only — Drag & Drop UI)
+• Select Case Category (Dropdown)
+
+❌ Remove “Priority Level” completely (not required)
+
+---
+
+## 🔷 Upload Interaction Logic
+
+1. Initially:
+   • Submit button → Disabled
+   • Generate Case Timeline → Disabled
+
+2. After PDF Upload:
+   • Enable “Submit” button
+
+3. On Clicking Submit:
+   • Store case details (frontend only for now)
+   • Enable “Generate Case Timeline” button
+
+4. On Clicking Generate Case Timeline:
+
+Simulate ML prediction logic:
+
+Example:
+“This case requires 15 hearings”
+
+Generate a **vertical timeline UI** showing:
+
+• Hearing Number
+• Hearing Date
+• Hearing Time
+
+Example timeline:
+
+Hearing 1 — 12-03-2026 — 10:30 AM
+Hearing 2 — 25-03-2026 — 11:00 AM
+Hearing 3 — 10-04-2026 — 12:15 PM
+
+Show full predicted schedule downward.
+
+---
+
+## 🔷 Timeline Features
+
+• Vertical progress line
+• Hearing nodes (circles)
+• Date + Time beside each node
+• Status indicator (Upcoming / Completed later)
+
+---
+
+## 🔷 Final Action Buttons (After Timeline)
+
+Add new button:
+
+✅ **“Add Case to Monitoring System”**
+
+Purpose:
+
+• Confirms case registration
+• Moves case to Case Status page
+• Saves predicted hearings
+
+Keep buttons:
+
+• Submit
+• Generate Case Timeline
+• Add Case to Monitoring System
+• Clear Form
+
+---
+
+## 🔷 Clear Form Logic
+
+When clicked:
+
+• Remove uploaded PDF
+• Reset dropdown
+• Disable buttons again
+• Clear generated timeline
+
+---
+
+## 🔷 Recently Uploaded Section (Below Form)
+
+Add table:
+
+Columns:
+
+• Case ID
+• Case Category
+• Upload Date
+• Timeline Generated (Yes/No)
+• Action → View
+
+---
+
+# 🔷 CASE STATUS / MONITORING PAGE — FINAL DESIGN
+
+---
+
+## 🔎 Search & Filter Section
+
+Filters to include:
+
+• Search by Case ID / Party Name
+• Case Category
+• Monitoring Status
+• Filing Date Range
+
+❌ Remove Priority Level filter completely
+
+---
+
+## 📊 Case Monitoring Table
+
+Columns:
+
+• Case Number
+• Case Type
+• Parties
+• Court
+• Filing Date
+• Next Hearing Date & Time
+• Monitoring Status
+• Action → View
+
+---
+
+## 🎨 Monitoring Status Colors
+
+• On Track → Green
+• Warning → Orange
+• Delayed → Red
+
+---
+
+## 🔍 View Case Modal — Detailed Design
+
+When user clicks “View”, open modal containing:
+
+### Case Information
+
+• Case Number
+• Case Type
+• Parties
+• Court
+• Filing Date
+• Predicted Total Hearings
+
+---
+
+### Timeline History (Preview)
+
+Show vertical timeline with:
+
+• Hearing Number
+• Date
+• Time
+• Status
+
+---
+
+### Modal Buttons
+
+• View Full Timeline
+• Download Report
+• Close
+
+---
+
+# 🔷 FULL TIMELINE PAGE
+
+When clicking “View Full Timeline”:
+
+Show:
+
+### Case Summary Card
+
+• Case ID
+• Court
+• Filing Date
+• Total Hearings
+
+---
+
+### Hearing Schedule Table
+
+Columns:
+
+• Hearing No
+• Date
+• Time
+• Status
+
+---
+
+### Progress Tracker
+
+Example:
+
+Hearings Completed: 6 / 15
+Progress Bar Visualization
+
+---
+
+# 🔷 DOWNLOAD REPORT FEATURE
+
+Generate downloadable report including:
+
+• Case details
+• Full hearing schedule
+• Monitoring status
+• Delay analysis
+• Predicted completion date
+
+Formats:
+
+• PDF
+• Excel
+
+---
+
+# 🔷 FOOTER REQUIREMENT
+
+Footer must be **fixed at the bottom** on every page.
+
+Include:
+
+© Department of Justice, Government of India
+Designed by NIC
+Terms of Use | Privacy Policy | Disclaimer | Contact Us
+
+---
+
+# 🔷 UI DESIGN STYLE
+
+Use:
+
+• Government professional theme
+• Blue + White base colors
+• Status color badges
+• Card layouts
+• Shadow containers
+• Rounded buttons
+• Clean typography
+
+---
+
+# 🔷 FUTURE ML INTEGRATION (Design Ready)
+
+System should be ready to integrate ML model that:
+
+• Analyzes uploaded case PDF
+• Predicts number of hearings
+• Generates optimized hearing schedule
+• Adjusts timeline dynamically
+
+For now → simulate prediction.
+
+---
+
+Create fully responsive UI with structured components for scalability.

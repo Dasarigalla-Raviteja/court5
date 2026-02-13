@@ -1,0 +1,183 @@
+Implement an intelligent and realistic hearing completion and rescheduling mechanism within the Judicial Case Monitoring System to ensure that case timelines remain flexible, accurate, and aligned with real-world court proceedings.
+
+For every case, the system initially generates a predicted hearing schedule consisting of N total hearings based on AI or manual planning. Hearings must be updated strictly in sequential order, meaning each hearing becomes editable only after the previous one is completed. Each hearing supports three standard progress updates: Mark Completed, Mark Adjourned, and Mark Delayed, along with a Dispose Case option for early closure.
+
+🔹 1. N-2 Completion Checkpoint Logic
+
+To proactively assess whether the case will finish within the planned schedule, the system must introduce a Completion Checkpoint at the N-2 hearing stage (i.e., two hearings before the final hearing).
+
+For example:
+
+If total hearings = 10 → checkpoint at Hearing 8
+
+If total hearings = 14 → checkpoint at Hearing 12
+
+When the user opens the update progress view for the N-2 hearing, a contextual decision panel must appear inside the active hearing card, positioned below hearing details and above action buttons.
+
+The checkpoint UI should display the following message:
+
+“Do you expect this case to be completed within the remaining hearings?”
+
+Two action buttons must be provided:
+
+Yes – Continue Schedule
+
+No – Reschedule Required
+
+✔ If “Yes” is selected:
+
+The system continues with the existing hearing schedule without changes. Future hearings remain as originally generated.
+
+✔ If “No” is selected:
+
+A rescheduling modal must open asking:
+
+“How many additional hearings are required to complete this case?”
+
+After entering the number and confirming:
+
+The system must extend the hearing timeline.
+
+New hearings must be appended after the existing final hearing.
+
+Dates and times must be auto-generated using the same scheduling logic.
+
+Newly added hearings must be tagged as Rescheduled.
+
+Total hearings count must be updated globally across the system.
+
+This includes updates in:
+
+Case Overview
+
+Monitoring Tables
+
+Dashboard Analytics
+
+Reports Module
+
+Timeline History
+
+🔹 2. Recursive Checkpoint After Rescheduling
+
+The completion checkpoint logic must remain dynamic.
+
+If hearings are extended:
+
+Let new total hearings = N + X
+
+The checkpoint must again trigger at (New Total − 2)
+
+Example:
+
+Original hearings = 14
+
+Extended by = 3
+
+New total = 17
+
+New checkpoint = Hearing 15
+
+This ensures continuous predictive monitoring until final disposal.
+
+🔹 3. Final Hearing Fallback Rescheduling
+
+In real courts, judges may not always decide completion at earlier stages. Therefore, the system must include a mandatory fallback mechanism at the final hearing.
+
+If the case reaches the last hearing and is still unresolved, the system must display an action panel inside the final hearing card showing:
+
+“Case not completed. Select next action.”
+
+Buttons:
+
+Dispose Case
+
+Reschedule Hearings
+
+✔ If “Dispose Case” is selected:
+
+The case is closed, monitoring stops, and status updates to Disposed.
+
+✔ If “Reschedule Hearings” is selected:
+
+A modal must appear requesting:
+
+“Enter additional hearings required.”
+
+Upon confirmation:
+
+New hearings must be appended.
+
+Dates auto-generated.
+
+Tagged as Rescheduled.
+
+Total hearings updated system-wide.
+
+N-2 checkpoint recalculated again.
+
+This ensures the system supports last-minute extensions realistically.
+
+🔹 4. Early Disposal Handling
+
+If a case is resolved before reaching its final hearing:
+
+Admin can click Dispose Case at any hearing.
+
+That hearing becomes the disposal point.
+
+All remaining future hearings must be auto-marked as:
+
+“Cancelled — Case Disposed Early”
+
+They remain visible in the timeline for audit history but locked from editing.
+
+🔹 5. Adjournment Pause Logic Integration
+
+If any hearing is marked Adjourned:
+
+The case enters Paused state.
+
+Next hearings remain locked.
+
+A Resume Hearing button must appear on the adjourned hearing card.
+
+Only after resuming and completing that hearing can the timeline proceed.
+
+Checkpoint or rescheduling prompts must not trigger while paused.
+
+🔹 6. UI/UX Flow Design Guidelines
+
+To maintain clarity and usability:
+
+Completion checkpoint appears inline within the hearing card.
+
+Reschedule inputs open in modal dialogs.
+
+Newly added hearings display a “Rescheduled” badge.
+
+Cancelled hearings (after disposal) display a grey locked state.
+
+Sequential locking must remain visually clear.
+
+The overall flow must feel guided, not forced, allowing judges/admins to proceed naturally while still enabling predictive and fallback extensions.
+
+❤️ Human-Friendly System Behavior Summary
+
+System predicts hearings initially.
+
+Near the end, it asks if more time is needed.
+
+If yes → continue.
+
+If no → extend.
+
+If undecided → final hearing still allows extension.
+
+Case can close early anytime.
+
+Adjournments pause the flow.
+
+Timeline always stays editable but controlled.
+
+This design ensures realism, flexibility, and intelligent monitoring aligned with real judicial processes.

@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Government of India portal color palette */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 20%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 20%;
+
+    /* Government blue - primary action color */
+    --primary: 211 63% 35%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Light gray for secondary elements */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 20%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 211 63% 35%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Status colors - subtle, official */
+    --status-success: 142 50% 40%;
+    --status-warning: 38 70% 45%;
+    --status-danger: 0 65% 50%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 211 63% 35%;
+
+    --radius: 0;
+
+    /* Government typography - system fonts */
+    --font-sans: Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-size: 14px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  .govt-header {
+    @apply bg-primary text-primary-foreground py-3 px-4;
+  }
+
+  .govt-nav-link {
+    @apply text-primary-foreground/90 hover:text-primary-foreground hover:underline text-sm px-3 py-1;
+  }
+
+  .govt-section {
+    @apply bg-card border border-border p-4;
+  }
+
+  .govt-stat-tile {
+    @apply bg-secondary border border-border p-4;
+  }
+
+  .govt-btn-primary {
+    @apply bg-primary text-primary-foreground px-4 py-2 text-sm font-medium hover:bg-primary/90 border-0;
+  }
+
+  .govt-btn-secondary {
+    @apply bg-muted text-foreground px-4 py-2 text-sm font-medium hover:bg-muted/80 border border-border;
+  }
+
+  .govt-input {
+    @apply bg-background border border-border px-3 py-2 text-sm w-full focus:outline-none focus:border-primary;
+  }
+
+  .govt-select {
+    @apply bg-background border border-border px-3 py-2 text-sm w-full focus:outline-none focus:border-primary;
+  }
+
+  .govt-label {
+    @apply text-sm font-medium text-foreground mb-1 block;
+  }
+
+  .govt-table {
+    @apply w-full border-collapse;
+  }
+
+  .govt-table th {
+    @apply bg-muted text-left p-2 border border-border text-sm font-semibold;
+  }
+
+  .govt-table td {
+    @apply p-2 border border-border text-sm;
+  }
+
+  .govt-table tr:nth-child(even) {
+    @apply bg-secondary/50;
+  }
+}

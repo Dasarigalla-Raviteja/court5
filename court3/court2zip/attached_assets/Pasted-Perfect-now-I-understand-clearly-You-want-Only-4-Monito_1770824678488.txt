@@ -1,0 +1,37 @@
+Perfect 👍 — now I understand clearly.
+
+You want:
+
+Only 4 Monitoring Statuses
+
+❌ Do NOT include Disposed
+
+❌ No optional statuses
+
+✔ With examples
+
+✔ Clean paragraph prompt
+
+So your final monitoring statuses are:
+
+All Status (filter only)
+
+On Track
+
+Warning
+
+Delayed
+
+Below is the final professional prompt you can use 👇
+
+📌 Final Prompt — Case Monitoring Status Logic (Without Disposed)
+
+In the Case Monitoring System, every case under monitoring must be assigned a dynamic status that reflects its real-time progress compared to the predicted case timeline. The monitoring module must support only four statuses: All Status, On Track, Warning, and Delayed, where “All Status” functions purely as a filter option and not as an actual case state. The status calculation must be driven by hearing progress, adjournments, delays, and adherence to the predicted hearing schedule generated during timeline creation.
+
+A case must be marked as On Track when hearings are being conducted as per the predicted schedule without significant deviations. For example, if a case has 14 predicted hearings and the first 5 hearings are completed on their scheduled dates without adjournment or delay, the monitoring status should remain On Track. This indicates that the case is progressing smoothly within its expected judicial timeline.
+
+A case must be marked as Warning when early signs of delay risk appear but the case has not yet exceeded its predicted timeline. This includes scenarios where a few hearings are adjourned or slightly postponed but recovery within the original prediction window is still possible. For example, if out of 14 hearings, 6 are completed but 2 were adjourned and rescheduled, the system should classify the case under Warning to indicate potential risk while still being manageable.
+
+A case must be marked as Delayed when the hearing progress significantly deviates from the predicted timeline or when hearings are auto-marked delayed due to inaction on scheduled dates. This includes excessive adjournments, multiple delayed hearings, or projected completion beyond the predicted hearing count or timeframe. For instance, if a case predicted to finish within 14 hearings has already delayed 4–5 hearings or missed scheduled updates, it must be categorized as Delayed, signaling timeline overrun.
+
+These monitoring statuses must update dynamically based on hearing progress recorded in the timeline update module and must remain synchronized across dashboards, monitoring panels, analytics, and reporting systems. Since disposed or closed cases are not part of active monitoring, the Disposed status must not be included in the monitoring status list. This ensures the monitoring system focuses strictly on active case progression risk levels rather than completed case outcomes.
